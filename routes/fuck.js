@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', async function(req, res, next) {
 	ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-	message = req.body.title;
+	message = req.body.message;
 	res.render('niceLayout', { title: 'I hate you' });
 	await connection.query(`INSERT INTO messages (ip, message) values ("${ip}", "${message}")`);
 });
