@@ -3,19 +3,43 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const chalk = require('chalk');
 const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var fuckRouter = require('./routes/fuck');
-
+var ip, status;
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(logger('dev'));
+ var idk = logger(function (tokens, req, res) {
+  ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  status = tokens.status(req, res);
+  if(status < 400) {
+    return [
+    tokens.method(req, res),
+    tokens.url(req, res),
+	chalk.green(status),
+    tokens.res(req, res, 'content-length'), '-',
+    tokens['response-time'](req, res), 'ms',
+	'ip', ip
+  ].join(' '); }
+  else { return [
+    tokens.method(req, res),
+    tokens.url(req, res),
+	chalk.red(status),
+    tokens.res(req, res, 'content-length'), '-',
+    tokens['response-time'](req, res), 'ms',
+	'ip', ip
+  ].join(' ');  
+}
+});
+
+app.use(idk);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
