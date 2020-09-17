@@ -1,30 +1,49 @@
-const mysql = require('mysql');
+const {MongoClient} = require('mongodb'); //change for mongodb
 const express = require('express');
 const router = express.Router();
-const sqlSettings = require('../settings');
+const settings = require('../settings');
+const chalk = require('chalk');
 
 
-let connection = mysql.createConnection({ 
-	host: 'localhost',
-	user: sqlSettings.sql.username,
-	password: sqlSettings.sql.password,
-	database: sqlSettings.sql.database
-});
-connection.connect(function(err) { if (err) throw err; console.log(`connected to ${sqlSettings.sql.database}`)});
-
-let ip, message;
+const uri = `mongodb://${settings.username}:${settings.password}@${settings.ip}:${settings.port}/${settings.database}`;
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('niceLayout', { title: 'fuck fuck fuck fuck ' });
+	res.render('fuck', { title: 'fuck fuck fuck fuck ' });
 });
 
 router.post('/', async function(req, res, next) {
-	ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-	message = req.body.message;
-	res.render('niceLayout', { title: 'I hate you' });
-	await connection.query(`INSERT INTO messages (ip, message) values ("${ip}", "${message}")`);
+	content = req.body.message;
+	res.render('fuck', { title: 'I hate you' });
+	await main(content);
 });
 
+
+
+
+async function main(content){
+
+	const client = new MongoClient(uri);
+    try {
+
+        await client.connect();
+        await  insertMessages(client, content);
+ 
+    } 
+	catch (e) {
+        console.error(e);
+    }
+	finally {
+        await client.close();
+    }
+};
+
+
+async function insertMessages(client, msgContent){
+	const db = client.db(settings.database);
+	const collection = db.collection("messages");
+	await collection.insertOne({content:msgContent});
+
+};
 module.exports = router;
