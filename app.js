@@ -16,26 +16,27 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
- var idk = logger(function (tokens, req, res) {
+var idk = logger(function (tokens, req, res) {
   ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   status = tokens.status(req, res);
-  if(status < 400) {
+  if(status == 404) {
     return [
-    tokens.method(req, res),
-    tokens.url(req, res),
-	chalk.green(status),
-    tokens.res(req, res, 'content-length'), '-',
-    tokens['response-time'](req, res), 'ms',
-	'ip', ip
-  ].join(' '); }
-  else { return [
     tokens.method(req, res),
     tokens.url(req, res),
 	chalk.red(status),
     tokens.res(req, res, 'content-length'), '-',
     tokens['response-time'](req, res), 'ms',
-	'ip', ip
-  ].join(' ');  
+  ].join(' '); }
+
+  else if(ip== "46.193.161.105") { 
+	  return [
+		tokens.method(req, res),
+		tokens.url(req, res),
+		chalk.green(status),
+		tokens.res(req, res, 'content-length'), '-',
+		tokens['response-time'](req, res), 'ms',
+		chalk.purple("Rog Request")
+	  ].join(' ');  
 }
 });
 

@@ -6,7 +6,7 @@ const chalk = require('chalk');
 
 
 const uri = `mongodb://${settings.username}:${settings.password}@${settings.ip}:${settings.port}/${settings.database}`;
-
+//TODO add date & new bar for usernae
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
