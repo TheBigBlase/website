@@ -1,4 +1,4 @@
-var createError = require('http-errors');
+:ar createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -35,7 +35,7 @@ var idk = logger(function (tokens, req, res) {
 		chalk.green(status),
 		tokens.res(req, res, 'content-length'), '-',
 		tokens['response-time'](req, res), 'ms',
-		chalk.purple("Rog Request")
+		chalk.blue("Rog Request")
 	  ].join(' ');  
 }
 });
