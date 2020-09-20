@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const settings = require('../settings');
 const chalk = require('chalk');
-
+const fs = require('fs');
 
 const uri = `mongodb://${settings.username}:${settings.password}@${settings.ip}:${settings.port}/${settings.database}`;
 //TODO add date & new bar for usernae
@@ -26,6 +26,10 @@ async function main(content){
 
 	const client = new MongoClient(uri);
     try {
+		let stop = await blacklist(content);
+		if(stop == true ) return;
+		
+		console.log("conncting");
 
         await client.connect();
         await  insertMessages(client, content);
@@ -46,4 +50,29 @@ async function insertMessages(client, msgContent){
 	await collection.insertOne({content:msgContent});
 
 };
+
+
+async function badWords() {
+	let value = false;
+	await new Promise(async (resolve, reject) => {
+	fs.readFile("/usr/website/blacklist.txt", "utf8", async(err, data) => { 
+		await resolve(data.split("\n")) 
+	})
+	}).then(async res => {
+		await res.forEach(word => {
+		if(word.trim().toLowerCase() === content){
+			value = true;
+		}
+	})
+	})
+	return value; 
+}
+
+async function blacklist(content){
+
+	content = content.trim().toLowerCase();
+	return await badWords();
+	
+};
+	
 module.exports = router;
