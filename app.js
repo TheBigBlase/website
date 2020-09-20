@@ -23,7 +23,7 @@ var idk = logger(function (tokens, req, res) {
 		return [
 		tokens.method(req, res),
 		tokens.url(req, res),
-		chalk.red(status),
+		chalk.green(status),
 		tokens.res(req, res, 'content-length'), '-',
 		tokens['response-time'](req, res), 'ms',
 		chalk.blue("Rog Request")
