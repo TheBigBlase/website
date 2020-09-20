@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const chalk = require('chalk');
 const cors = require('cors');
+const settings = require('./settings.json');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -19,7 +20,7 @@ app.set('view engine', 'jade');
 var idk = logger(function (tokens, req, res) {
 	ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 	status = tokens.status(req, res);
-	if(ip== "46.193.161.105") {
+	if(ip== settings.rogIp) {
 		return [
 		tokens.method(req, res),
 		tokens.url(req, res),
