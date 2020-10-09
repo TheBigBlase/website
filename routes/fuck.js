@@ -47,7 +47,7 @@ async function main(content){
 async function insertMessages(client, msgContent){
 	const db = client.db(settings.database);
 	const collection = db.collection("messages");
-	await collection.insertOne({content:msgContent, time: Math.floor(Date.now/1000)});
+	await collection.insertOne({content:msgContent, time: Math.floor(Date.now()/1000)});
 
 };
 
