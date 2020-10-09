@@ -20,7 +20,8 @@ app.set('view engine', 'jade');
 var idk = logger(function (tokens, req, res) {
 	ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 	status = tokens.status(req, res);
-	if(ip== settings.rogIp) {
+	if( tokens.url(req, res) == "/") return;
+	else if(ip== settings.rogIp) {
 		return [
 		tokens.method(req, res),
 		tokens.url(req, res),
