@@ -10,6 +10,7 @@ const settings = require('./settings.json');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var fuckRouter = require('./routes/fuck');
+var lampRouter = require('./routes/lamp');
 var ip, status;
 var app = express();
 
@@ -65,6 +66,8 @@ app.use(cors({origin: 'http://bigblase.xyz'}));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/fuck', fuckRouter);
+app.use('/lamp', lampRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

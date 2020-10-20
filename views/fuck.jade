@@ -1,10 +1,16 @@
 extends layout 
 
 block content 
-	h1 aha get pranked 
-	a(href='https://www.youtube.com/watch?v=dQw4w9WgXcQZ') FUCK
+	h1 tts stuff idk
 	form(method="post")
-		div.input
+		h2 if my computer is on, your message will be read through a tts
+		div.input(id="inner")
+			p if you wanna leave a kind message
 			input(type="text", name="message")
-		div.actions
+		div.input(id="inner")
+			p if you wanna leave your name
+			input(type="text", name="nickname")
+		div.actions(id="inner")
 			input(type="submit", value="Annoy the shit outta me")
+	div(id="footer")
+		a(href='/lamp', id="spooky") if u eveur fil a lidl le sahd in ur lyfe

@@ -4,16 +4,56 @@ body {
   background-color: #332244;
 }
 
+
 h1 {
-  color: #8833EE;
+  color: #99ccff;
   text-align: center;
-  }
+  font-size: 400%;
+}
+
+
+h2 {
+  color: #c26afc;
+  text-align: center;
+}
+
+
+h3 {
+  color: #c26afc;
+  text-indent: 3%;
+}
+
 
 a {
-  color: #FF0066;
+  color: #99ccff;
 }
 
+
 a:visited {
-  color: #AA00AA;
-  outline: white;
+  color: #9988ff;
 }
+
+
+p {
+  size: 14px;
+  color: #9988ff;
+}
+
+
+#inner {
+  display: table;
+  margin: 0 auto;
+}
+
+
+#footer {
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+
+#spooky {
+  color: #4d3366;
+}
+
