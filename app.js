@@ -62,6 +62,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({origin: 'http://bigblase.xyz'}));
 
+app.get('/robots.txt', function (req, res) {
+    res.type('text/plain');
+    res.send("User-agent: *\nDisallow: /");
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
