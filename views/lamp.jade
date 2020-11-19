@@ -3,12 +3,12 @@ extends layout
 block content 
 	script(src="/javascripts/dropDownMenu.js")
 	h1 LAMP
-	div(class="dropdown")
-		button(class="dropButton", onclick="whereWeDropin()") sup
-			div(id="droping", class="dropdown-content")
-				p rainbow, ew 
-				p colorWipe
-				p off
-	div.actions(id="inner")
-		input(type="submit", value="lamps are cool")
-
+	form(method="post")
+		div(class="dropdown")
+			button(class="dropButton", onclick="whereWeDropin()") sup
+				div(id="droping", class="dropdown-content")
+					p rainbow, ew 
+					p colorWipe
+					p off
+		div.actions(id="inner")
+			input(type="submit", value="lamps are cool")
