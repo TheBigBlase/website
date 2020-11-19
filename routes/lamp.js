@@ -10,9 +10,10 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
 	const method = req.body.method;
-	const redValue = req.body.red;
-	const greenValue = req.body.green;
-	const blueValue = req.body.blue;
+	//const redValue = req.body.red;
+	//const greenValue = req.body.green;
+	//const blueValue = req.body.blue;
+	console.log(method);
 	if(method == 'rainbow'){
 		asiox.post('127.0.0.1:9003/rainbow', { 
 			})
