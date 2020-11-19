@@ -42,7 +42,7 @@ router.post('/', function(req, res, next) {
 			console.error(error)});
 	}
 	else {
-		res.rendre('error', { title: '404 you dumb dumb'});
+		res.render('error', { title: '404 you dumb dumb'});
 	}
 	});
 	
