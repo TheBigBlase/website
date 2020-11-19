@@ -1,5 +1,11 @@
 extends layout 
 
 block content 
-	h1 LAMP 
-	p still under construction but congrast for spotting dat link
+	script(src="/javascripts/dropDownMenu.js")
+	h1 LAMP
+	div(class="dropdown")
+		button(class="dropButton", onclick="whereWeDropin()") sup
+			div(id="droping", class="dropdown-content")
+				p rainbow, ew 
+				p colorWipe
+				p off
