@@ -5,7 +5,7 @@ const axios = require('axios');
 
 /* GET users listing. */
 router.post('/', function(req, res, next) {
-			asiox.post('127.0.0.1:9003/rainbow', { 
+			asiox.post('127.0.0.1:9003/rainbow', {
 			})
 		.then(res => {
 			console.log(res.statusCode)})
