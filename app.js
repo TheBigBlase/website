@@ -35,7 +35,7 @@ var idk = logger(function (tokens, req, res) {
 		  ].join(' '); 
 	}
 
-	else if (Math.floor(status/100) == 4 || Math.floor(status/100) == 5){ 
+	else if(Math.floor(status/100) == 4 || Math.floor(status/100) == 5){ 
 		return [
 			tokens.method(req, res),
 			tokens.url(req, res),
@@ -53,8 +53,6 @@ var idk = logger(function (tokens, req, res) {
 			tokens['response-time'](req, res), 'ms',
 		  ].join(' ');
 	} 
-
-
 });
 
 app.use(idk);
@@ -73,6 +71,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/fuck', fuckRouter);
 app.use('/lamp', lampRouter);
+app.use('/rainbow', rainbowRouter);
 
 
 // catch 404 and forward to error handler
