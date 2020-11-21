@@ -11,6 +11,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var fuckRouter = require('./routes/fuck');
 var lampRouter = require('./routes/lamp');
+let rainbowRouter = require('./routes/rainbow');
+let shutdownRouter = require('./routes/shutdown');
 var ip, status;
 var app = express();
 
