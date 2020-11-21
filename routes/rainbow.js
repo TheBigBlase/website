@@ -6,7 +6,7 @@ const { exec } = require("child_process");
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 	console.log('fuck you sample');
-	exec("curl -X POST localhost:9003",(error, stdout, stderr) => {
+	exec("curl -X POST localhost:9003/rainbow",(error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
