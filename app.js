@@ -13,7 +13,7 @@ var fuckRouter = require('./routes/fuck');
 var lampRouter = require('./routes/lamp');
 let rainbowRouter = require('./routes/rainbow');
 let shutdownRouter = require('./routes/shutdown');
-let sample = require('./routes/sample');
+let sampleRouter = require('./routes/sample');
 var ip, status;
 var app = express();
 
@@ -74,6 +74,7 @@ app.use('/fuck', fuckRouter);
 app.use('/lamp', lampRouter);
 app.use('/rainbow', rainbowRouter);
 app.use('/shutdown', shutdownRouter);
+app.use('/sample', sampleRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
