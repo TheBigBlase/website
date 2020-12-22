@@ -63,6 +63,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({origin: 'http://bigblase.xyz'}));
 
+
+app.get('/code', (req, res) => {
+res.download(path.join(__dirname, "/code"));
+});
 app.get('/robots.txt', function (req, res) {
     res.type('text/plain');
     res.send("User-agent: *\nDisallow: /");
