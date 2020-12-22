@@ -13,6 +13,7 @@ var fuckRouter = require('./routes/fuck');
 var lampRouter = require('./routes/lamp');
 let rainbowRouter = require('./routes/rainbow');
 let shutdownRouter = require('./routes/shutdown');
+let sample = require('./routes/sample');
 var ip, status;
 var app = express();
 
