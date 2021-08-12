@@ -1,4 +1,1 @@
-# website
-
-Learning Express.js here
-also should be hosted on bigblase.xyz for the next few years 
+This should be the active version of http://bigblase.xyz ! 
