@@ -7,6 +7,7 @@ const chalk = require('chalk');
 const cors = require('cors');
 const settings = require('./settings.json');
 
+var donutRouter = require('./routes/donut');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var fuckRouter = require('./routes/fuck');
@@ -79,6 +80,7 @@ app.use('/lamp', lampRouter);
 app.use('/rainbow', rainbowRouter);
 app.use('/shutdown', shutdownRouter);
 app.use('/sample', sampleRouter);
+app.use('/donut', donutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
