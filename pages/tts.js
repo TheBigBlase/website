@@ -1,4 +1,5 @@
-import Layout from './layout'
+import Layout from './layout';
+import Router from 'next/router';
 
 const Tts= () => {
 	const handleSubmit = async(e) => {
@@ -15,6 +16,7 @@ const Tts= () => {
 			const userObj = await res.json();
 			mutate(userObj);
 		}
+		Router.push("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
 	}
 	return ( 
 		<Layout>
