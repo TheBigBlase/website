@@ -1,23 +1,23 @@
 import nc from "next-connect"
 import {all} from '../../middlewares/index';
 import { insertMessage } from '../../db/index';
+import Router from 'next/router';
 const handler = nc();
 
 handler.use(all);
 
 handler.post(async(req, res) => {
 	const { message, name } = req.body;
-	if(!message){
-		req.status(400).send('Please leave a message.');
-		return;
+
+	if(!message || !name){
+		res.status(400).send('Please enter a message and a name.');
 	}
-	if(!name){
-		name = '';
-		return;
-	}
-	await insertMessage(req.db, {
+
+	else{
+		await insertMessage(req.db, {
 		message, name
 	});
+}
 });
 
 export default handler;

@@ -1,11 +1,10 @@
-const settings = require('../settings');
-
 export async function insertMessage(db, {message, name}) { 
+	const date = new Date();
 	return db.collection("messages")
 					.insertOne({
 						content:message, 
-						time: Math.floor(Date.now()/1000),
-						nickname: name
+						time: date.toISOString(),
+						author: name
 					})
 			.then(({ops}) => ops[0]);
 }
