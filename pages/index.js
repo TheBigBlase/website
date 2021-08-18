@@ -23,7 +23,7 @@ export default function Home() {
         <div className="grid">
           <a href="https://github.com/thebigblase/" className="card">
             <h3>My github &rarr;</h3>
-            <p>Aka the dumb shit I do to learning fancy stuff</p>
+            <p>Aka the dumb stuff I do to learn fancy stuff</p>
           </a>
 
           <Link href="/tts" className="grid">
